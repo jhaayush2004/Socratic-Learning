@@ -11,6 +11,7 @@ from langchain.chains import LLMChain
 from langchain_groq import ChatGroq
 from langchain_community.utilities import GoogleSerperAPIWrapper
 import time
+import os
 
 
 youtube = YouTubeSearchTool()
@@ -21,11 +22,10 @@ wikipedia = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
 
 
 # Initialize ChatGroq model with the correct API key and parameters
-chat = ChatGroq(temperature=0.5, groq_api_key = userdata.get('GROQ_API_KEY'), model_name="llama3-70b-8192")
+chat = ChatGroq(temperature=0.5, groq_api_key = os.getenv('GROQ_API_KEY'), model_name="llama3-70b-8192")
 
 # Initialize the Google search tool (using Serper API)
-serper = GoogleSerperAPIWrapper(serper_api_key = userdata.get('SERPER_API_KEY'))
-
+serper = GoogleSerperAPIWrapper(serper_api_key = os.getenv('SERPER_API_KEY')
 # Define system and human prompts for the model
 system = "You are a helpful assistant."
 human = "{text}"
@@ -105,10 +105,10 @@ query = "What is attention mechanism in transformer. suggest some youtube videos
 
 
 # Initialize ChatGroq model with the correct API key and parameters
-chat = ChatGroq(temperature=0.5, groq_api_key="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", model_name="llama3-70b-8192")
+chat = ChatGroq(temperature=0.5, groq_api_key= os.getenv('GROQ_API_KEY') , model_name="llama3-70b-8192")
 
 # Initialize the Google search tool (using Serper API)
-serper = GoogleSerperAPIWrapper(serper_api_key='c05239543e7aa4ea3e8d1eaf0e92e97be72a16a1')
+serper = GoogleSerperAPIWrapper(serper_api_key=os.getenv('SERPER_API_KEY')')
 wikipedia = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
 youtube = YouTubeSearchTool()
 
