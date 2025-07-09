@@ -1,5 +1,4 @@
-
-
+import os
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_community.utilities import GoogleSerperAPIWrapper
@@ -107,10 +106,10 @@ def quiz(mcqs):
 
 
 # Initialize ChatGroq model with the correct API key and parameters
-chat = ChatGroq(temperature=0.5, groq_api_key=userdata.get('GROQ_API_KEY'), model_name="llama3-70b-8192")
+chat = ChatGroq(temperature=0.5, groq_api_key=os.getenv('GROQ_API_KEY'), model_name="llama3-70b-8192")
 
 # Initialize the Google search tool (using Serper API)
-serper = GoogleSerperAPIWrapper(serper_api_key=userdata.get('SERPER_API_KEY'))
+serper = GoogleSerperAPIWrapper(serper_api_key=os.getenv('SERPER_API_KEY'))
 
 # Define system and human prompts for MCQ generation
 mcq_system = """
