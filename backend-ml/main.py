@@ -51,7 +51,7 @@ logger = logging.getLogger(__name__)
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 SERPER_API_KEY = os.getenv('SERPER_API_KEY')
 
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+GOOGLE_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Initialize tools and models
 chat = ChatGroq(temperature=0.5, groq_api_key=GROQ_API_KEY, model_name="mixtral-8x7b-32768")
