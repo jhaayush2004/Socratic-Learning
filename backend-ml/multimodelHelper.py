@@ -12,7 +12,7 @@ import tempfile
 load_dotenv()
 
 # Set the Google API Key
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+GOOGLE_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Function to handle voice input using a file
 # def voice_input(audio_path):
