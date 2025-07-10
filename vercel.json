@@ -5,15 +5,21 @@
       "src": "frontend/**",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build" // IMPORTANT: Replace 'build' with your frontend's actual output directory (e.g., 'dist', 'out')
+        "buildCommand": "npm run build", // This runs 'vite build' inside your frontend directory
+        "outputDirectory": "dist"        // Vite's default output directory
       }
     },
     {
       "src": "backend/server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["backend/models/**", "backend/routes/**", "backend/package.json", "backend/package-lock.json"]
-        // Add any other files/folders from your 'backend/' that server.js needs at runtime
+        "includeFiles": [
+            "backend/models/**",
+            "backend/routes/**",
+            "backend/package.json",
+            "backend/package-lock.json"
+            // Add any other files/folders from your 'backend/' that server.js needs at runtime
+        ]
       }
     }
   ],
